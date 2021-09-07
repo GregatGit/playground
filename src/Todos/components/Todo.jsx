@@ -3,6 +3,8 @@ import { useContext } from 'react'
 import { TodoContext } from '../context/TodoContext'
 import { DELETE_TODO, TOGGLE_TODO } from '../reducers/todoReducer'
 
+import { TodoLi } from './Todo.Styled'
+
 
 const Todo = ({ todo : { task, id, done } }) => {
   const { dispatch } = useContext(TodoContext)
@@ -16,25 +18,25 @@ const Todo = ({ todo : { task, id, done } }) => {
   }
 
 	return (
-		<li>
+		<TodoLi done={done}>
       {
         done ? (
           <>
-            <span>{task}</span>
-            <span><button onClick={handleToggleClick}>🔄</button></span>
+            <span className="text">{task}</span>
+            <span><button onClick={handleToggleClick}>➰</button></span>
           </>
         ) :
         (
           <>
             <span>{task}</span>
-            <span><button onClick={handleToggleClick}>✅</button></span>
+            <span><button onClick={handleToggleClick}>✔</button></span>
           </>
         )
       }
 			<span>
-				<button onClick={handleDeleteClick}>delete</button>
+				<button onClick={handleDeleteClick}>❌</button>
 			</span>
-		</li>
+		</TodoLi>
 	)
 }
 

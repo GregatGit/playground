@@ -2,6 +2,7 @@ import { useContext } from 'react'
 
 import AddTodo from './AddTodo'
 import Todo from './Todo'
+import { ListContainer, ButtonContainer } from './List.styled'
 
 import { TodoContext } from '../context/TodoContext'
 import { TOGGLE_ALL } from '../reducers/todoReducer'
@@ -13,12 +14,12 @@ const List = ({ todos }) => {
 		dispatch({type: TOGGLE_ALL, payload })
 	}
 	return (
-		<div>
+		<ListContainer>
 			<h3>My Todos</h3>
-			<div>
-				<span><button onClick={() => handleToggleAll(true)}>ALL DONE</button></span>
-				<span><button onClick={() => handleToggleAll(false)}>RESET ALL</button></span>
-			</div>
+			<ButtonContainer>
+				<span><button onClick={() => handleToggleAll(true)}>ALL DONE ✔</button></span>
+				<span><button onClick={() => handleToggleAll(false)}>RESET ALL ➰</button></span>
+			</ButtonContainer>
 			<div>
 				{todos.length < 1 ? (
 					<div>... your list is empty ...</div>
@@ -29,7 +30,7 @@ const List = ({ todos }) => {
       <div>
         <AddTodo />
       </div>
-		</div>
+		</ListContainer>
 	)
 }
 

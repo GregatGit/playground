@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 import { TodoContext } from '../context/TodoContext'
 import { ADD_TODO } from '../reducers/todoReducer'
 
+import { AddTodoForm } from './AddTodo.Styled'
+
 const AddTodo = () => {
 	const { dispatch } = useContext(TodoContext)
 	const [task, setTask] = useState('')
@@ -18,7 +20,7 @@ const AddTodo = () => {
     setTask('')
 	}
 	return (
-		<form onSubmit={handleSubmit}>
+		<AddTodoForm onSubmit={handleSubmit}>
 			<input
 				type="text"
 				minLength={3}
@@ -29,7 +31,7 @@ const AddTodo = () => {
 				onChange={(e) => setTask(e.target.value)}
 			/>
 			<button onClick={handleSubmit} type="submit">Add</button>
-		</form>
+		</AddTodoForm>
 	)
 }
 

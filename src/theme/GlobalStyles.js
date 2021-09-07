@@ -7,6 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.font};
     transition: all 0.50s linear;
   }
+
+  h1 {
+    text-align: center;
+  }
   a {
     color: ${({ theme }) => theme.colors.link.text};
     cursor: pointer;
