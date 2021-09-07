@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+import App from './App'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import * as themes from './theme/schema.json'
+import { setToLS } from './utils/storage'
 
+const Index = () => {
+	setToLS('all-themes', themes.default)
+	return <App />
+}
 
+ReactDOM.render(<Index />, document.getElementById('root'))
