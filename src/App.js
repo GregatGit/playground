@@ -1,14 +1,16 @@
-
-import './App.css';
-import Todos from './Todos/Todos';
+import './App.css'
+import TodoContextProvider from './Todos/context/TodoContext'
+import Todos from './Todos/Todos'
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Playground</h1>
-      <Todos />
-    </div>
-  );
+	return (
+		<div className="App">
+			<h1>Playground</h1>
+			<TodoContextProvider>
+				<Todos />
+			</TodoContextProvider>
+		</div>
+	)
 }
 
-export default App;
+export default App
