@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { useFormik } from 'formik'
 
@@ -7,11 +7,26 @@ import { ADD_TODO } from '../reducers/todoReducer'
 
 import { AddTodoForm } from './AddTodo.Styled'
 
+/* Formik set up */
+const initialValues = {task: ''}
+
+const validate = values => {
+	const errors = {}
+	if (!values.task){
+		errors.task = 'Required'
+	}
+	return errors
+}
+
+
+/* ================ */
+
 const AddTodo = () => {
+	const { dispatch } = useContext(TodoContext)
+
 	const formik = useFormik({
-		initialValues: {
-			task: ''
-		},
+		initialValues,
+		validate,
 		onSubmit: (values, {resetForm}) => {
 			let word = values.task.trim()
 			const todo = {
@@ -23,10 +38,9 @@ const AddTodo = () => {
 			resetForm({values: ''})
 		}
 	})
-	const { dispatch } = useContext(TodoContext)
-	const [task, setTask] = useState('')
 
-	
+	console.log('form errors: ', formik.errors)
+
 	return (
 		<AddTodoForm onSubmit={formik.handleSubmit}>
 			<input
@@ -44,20 +58,3 @@ const AddTodo = () => {
 }
 
 export default AddTodo
-
-
-/**const handleSubmit = (e) => {
-		e.preventDefault()
-		let word = task.trim()
-		if (word.length < 3){
-			setTask(word)
-			return
-		}
-    const todo = {
-      task,
-      done: false,
-      id: uuidv4()
-    }
-    dispatch({type: ADD_TODO, payload: todo})
-    setTask('')
-	} */

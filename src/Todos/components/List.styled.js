@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ListContainer = styled.div`
-	max-width: 80%;
+	max-width: 800px;
 	border: 2px solid black;
 	margin: 0 auto;
   padding: 30px;
