@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import WebFont from 'webfontloader'
+import SidePanel from './SidePanel'
 
 import { GlobalStyle } from './theme/GlobalStyles'
 import { useTheme } from './theme/useTheme'
@@ -30,6 +31,7 @@ function App() {
 			{themeLoaded && (
 				<ThemeProvider theme={selectedTheme}>
 					<GlobalStyle />
+					<SidePanel />
 					<h1>Playground</h1>
 					<TodoContextProvider>
 						<Todos />
