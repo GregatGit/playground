@@ -88,19 +88,6 @@ export default SidePanel
 const SidePanel = ({ changePage }) => {
   const [panel, setPanel] = useState(false)
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
-
-  const handleKeyDown = e => {
-    if (e.key === 'M' || e.key === 'm'){
-      setPanel(state => !state)
-    }
-  }
-
   const handleClick = (index) => {
     changePage(index)
     setPanel(false)
@@ -135,4 +122,6 @@ const SidePanel = ({ changePage }) => {
     </SidePanelContainer>
   )
 }
+
+https://www.youtube.com/watch?v=QPZrQ_xPVs4
 */
