@@ -5,7 +5,7 @@ import Todo from './Todo'
 import { ListContainer, ButtonContainer } from './List.styled'
 
 import { TodoContext } from '../context/TodoContext'
-import { TOGGLE_ALL } from '../reducers/todoReducer'
+import { TOGGLE_ALL, REMOVE_DONE } from '../reducers/todoReducer'
 
 const List = ({ todos }) => {
 	const { dispatch } = useContext(TodoContext)
@@ -13,12 +13,17 @@ const List = ({ todos }) => {
 	function handleToggleAll(payload){
 		dispatch({type: TOGGLE_ALL, payload })
 	}
+
+	function handleRemoveDone(){
+		dispatch({type: REMOVE_DONE})
+	}
 	return (
 		<ListContainer>
 			<h3>My Todos</h3>
 			<ButtonContainer>
 				<span><button onClick={() => handleToggleAll(true)}>ALL DONE ✔</button></span>
 				<span><button onClick={() => handleToggleAll(false)}>RESET ALL ➰</button></span>
+				<span><button onClick={handleRemoveDone}>REMOVE DONE ❌</button></span>
 			</ButtonContainer>
 			<div>
 				{todos.length < 1 ? (

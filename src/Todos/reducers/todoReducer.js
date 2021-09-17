@@ -2,6 +2,7 @@ export const ADD_TODO = 'ADD_TODO'
 export const DELETE_TODO = 'DELETE_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const TOGGLE_ALL = 'TOGGLE_ALL'
+export const REMOVE_DONE = 'REMOVE_DONE'
 
 export const todoReducer = (state, action) => {
 	switch (action.type) {
@@ -9,6 +10,9 @@ export const todoReducer = (state, action) => {
 			return state.map((todo) => {
 				return { ...todo, done: action.payload }
 			})
+		
+		case REMOVE_DONE:
+			return state.filter(todo => !todo.done)
 
 		case ADD_TODO:
 			return [...state, action.payload]
