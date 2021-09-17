@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { SidePanelContainer, InputBox, LabelWrapper } from './SidePanel_Styled'
 import { FaQrcode, FaLink, FaStream, FaBars, FaTimes } from 'react-icons/fa'
@@ -30,6 +30,19 @@ import { FaQrcode, FaLink, FaStream, FaBars, FaTimes } from 'react-icons/fa'
 
 const SidePanel = () => {
 	const [showMenu, setShowMenu] = useState(true)
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+  const handleKeyDown = e => {
+    if (e.key === 'M' || e.key === 'm'){
+      setShowMenu(state => !state)
+    }
+  }
 	return (
 		<div>
 			<InputBox
