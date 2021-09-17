@@ -19,21 +19,23 @@ export const LabelWrapper = styled.label`
 		font-size: 35px;
 		color: white;
 		padding: 6px 12px;
+		transition: all .5s ease;
 	}
 
 	.cancel {
 		z-index: 1111;
-		left: 195px;
-		top: 17px;
+		left: ${props => props.show ? "195px" : "-250px"};
+		top: 10px;
 		font-size: 30px;
 		color: #0a5275;
 		padding: 4px 9px;
+		transition: all .5s ease;
 	}
 `
 
 export const SidePanelContainer = styled.div`
 	position: fixed;
-	left: -250px;
+	left: ${props => props.show ? "0px" : "-250px"};
 	width: 250px;
 	height: 100%;
 	background: #042331;

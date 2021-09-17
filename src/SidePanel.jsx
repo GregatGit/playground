@@ -33,11 +33,11 @@ const SidePanel = () => {
 	return (
 		<div>
 			<InputBox type="checkbox" id="check" checked={showMenu} onChange={() => setShowMenu(showMenu => !showMenu)} />
-			<LabelWrapper htmlFor="check">
+			<LabelWrapper htmlFor="check" show={showMenu}>
 				<FaBars className="btn" />
 				<FaTimes className="cancel" />
 			</LabelWrapper>
-			<SidePanelContainer>
+			<SidePanelContainer show={showMenu}>
 				<header>Playground</header>
 				<ul>
 					<li>
