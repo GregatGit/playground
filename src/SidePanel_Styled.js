@@ -25,7 +25,7 @@ export const LabelWrapper = styled.label`
 	.cancel {
 		z-index: 1111;
 		left: ${props => props.show ? "195px" : "-250px"};
-		top: 10px;
+		top: 13px;
 		font-size: 30px;
 		color: #0a5275;
 		padding: 4px 9px;
@@ -50,7 +50,7 @@ export const SidePanelContainer = styled.div`
 		user-select: none;
 	}
 
-	ul a {
+	.icon_parent {
 		display: block;
 		height: 100%;
 		width: 100%;
@@ -64,12 +64,14 @@ export const SidePanelContainer = styled.div`
 		transition: 0.4s;
 	}
 
-	ul li:hover a {
-		padding-left: 50px;
-	}
-	ul a span {
+	.icon_li {
 		margin-right: 1em;
 	}
+
+	.icon_parent:hover {
+		padding-left: 50px;
+	}
+
 `
 
 /*

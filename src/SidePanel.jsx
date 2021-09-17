@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { SidePanelContainer, InputBox, LabelWrapper } from './SidePanel_Styled'
 import { FaQrcode, FaLink, FaStream, FaBars, FaTimes } from 'react-icons/fa'
@@ -29,10 +29,15 @@ import { FaQrcode, FaLink, FaStream, FaBars, FaTimes } from 'react-icons/fa'
 */
 
 const SidePanel = () => {
-  const [showMenu, setShowMenu] = useState(true)
+	const [showMenu, setShowMenu] = useState(true)
 	return (
 		<div>
-			<InputBox type="checkbox" id="check" checked={showMenu} onChange={() => setShowMenu(showMenu => !showMenu)} />
+			<InputBox
+				type="checkbox"
+				id="check"
+				checked={showMenu}
+				onChange={() => setShowMenu((state) => !state)}
+			/>
 			<LabelWrapper htmlFor="check" show={showMenu}>
 				<FaBars className="btn" />
 				<FaTimes className="cancel" />
@@ -41,28 +46,22 @@ const SidePanel = () => {
 				<header>Playground</header>
 				<ul>
 					<li>
-						<a href="#">
-							<span>
-								<FaQrcode />
-							</span>{' '}
+						<span className="icon_parent">
+							<FaQrcode className="icon_li" />
 							Dashboard
-						</a>
+						</span>
 					</li>
 					<li>
-						<a href="#">
-							<span>
-								<FaStream />
-							</span>{' '}
+						<span className="icon_parent">
+							<FaStream className="icon_li" />
 							Shortcuts
-						</a>
+						</span>
 					</li>
 					<li>
-						<a href="#">
-							<span>
-								<FaLink />
-							</span>{' '}
+						<span className="icon_parent">
+							<FaLink className="icon_li" />
 							Events
-						</a>
+						</span>
 					</li>
 				</ul>
 			</SidePanelContainer>
