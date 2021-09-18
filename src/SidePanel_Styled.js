@@ -42,7 +42,7 @@ export const SidePanelContainer = styled.div`
 	transition: all .5s ease;
 
 	header {
-		font-size: 1.5em;
+		font-size: 1.2em;
 		color: wheat;
 		text-align: center;
 		line-height: 3rem;

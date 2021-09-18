@@ -56,7 +56,7 @@ const SidePanel = () => {
 				<FaTimes className="cancel" />
 			</LabelWrapper>
 			<SidePanelContainer show={showMenu}>
-				<header>Playground</header>
+				<header>PLAYGROUND</header>
 				<ul>
 					<li>
 						<span className="icon_parent">
